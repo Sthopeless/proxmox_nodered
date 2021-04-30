@@ -106,7 +106,7 @@ info "Container ID is $CTID."
 msg "Updating LXC template list..."
 pveam update >/dev/null
 msg "Downloading LXC template..."
-OSTYPE=Node-Red
+OSTYPE=debian
 OSVERSION=${OSTYPE}-10
 mapfile -t TEMPLATES < <(pveam available -section system | sed -n "s/.*\($OSVERSION.*\)/\1/p" | sort -t - -k 2 -V)
 TEMPLATE="${TEMPLATES[-1]}"
@@ -138,7 +138,7 @@ else
   mkfs.ext4 $(pvesm path $ROOTFS) &>/dev/null
 fi
 ARCH=$(dpkg --print-architecture)
-HOSTNAME=template
+HOSTNAME=Node-Red
 TEMPLATE_STRING="local:vztmpl/${TEMPLATE}"
 pct create $CTID $TEMPLATE_STRING -arch $ARCH -features nesting=1 \
   -hostname $HOSTNAME -net0 name=eth0,bridge=vmbr0,ip=dhcp -onboot 1 \
