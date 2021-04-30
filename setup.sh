@@ -44,7 +44,7 @@ apt-get -qqy install \
 msg "Installing Node-Red part 1..."
 apt-get -qqy install build-essential git sshpass &>/dev/null
 msg "Installing Node-Red part 2..."
-bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-root
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-install
 
 # Customize container
 msg "Customizing container..."
